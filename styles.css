@@ -1,0 +1,134 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(120deg, #af5dd3, #3498db, #066df4);
+  background-size: 300% 300%;
+  animation: background-animation 8s ease infinite;
+  color: white;
+}
+
+/* @keyframes background-animation {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+} */
+
+.game-container {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  width: 95%;
+  max-width: 600px;
+  background: linear-gradient(45deg, #0942ee, #9716a0, #0a1ce9);
+    animation: board-gradient 6s ease infinite;
+    background-size: 400% 400%;
+}
+
+h1 {
+  margin-bottom: 10px;
+  font-size: 32px;
+  letter-spacing: 2px;
+  color: #f4f4f9;
+  text-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
+}
+
+.game-board {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  margin: 20px 0;
+  padding: 15px;
+  border-radius: 10px;
+  /* box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); */
+  /* animation: board-gradient 6s ease infinite; */
+
+  background: none;
+}
+
+@keyframes board-gradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+.card {
+  width: 100px;
+  height: 100px;
+  perspective: 1000px;
+  cursor: pointer;
+}
+
+.card-inner {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.card.flipped .card-inner {
+  transform: rotateY(180deg);
+}
+
+.card .front, .card .back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+}
+
+/* Karta old tomoni */
+.card .front {
+  background: linear-gradient(135deg, #1e84eb, #8715d3);
+}
+
+/* Karta orqa tomoni */
+.card .back {
+  background: linear-gradient(45deg, #53f608, #092dfa);
+  color: black;
+  transform: rotateY(180deg);
+}
+
+.message {
+  font-size: 18px;
+  color: #f1c40f;
+  margin: 10px 0;
+  text-shadow: 0 2px 3px rgba(0, 0, 0, 0.2);
+}
+
+.restart-btn {
+  padding: 10px 20px;
+  background: linear-gradient(135deg, #3498db, #9b59b6);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.restart-btn:hover {
+  background: linear-gradient(135deg, #9b59b6, #3498db);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+}
